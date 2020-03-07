@@ -138,7 +138,7 @@ Kruskal's Algorithm is quite intuitive. Here is the psuedocode for it:
 ```
 
 <img src="https://i.imgur.com/vg0f2d3.png" alt="View.java"
-	title="View.java" width="750 height="438" />
+	title="View.java" width="750" height="438" />
 
 ## Future Work
 
