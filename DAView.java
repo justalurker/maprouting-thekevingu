@@ -223,7 +223,7 @@ public class DAView extends JPanel {
     private static void updateText() {
         String s = "";
         for (Node n : solution) {
-                s += n.index + "\t" + df.format(n.weight) + "\n";
+            s += n.index + "\t" + df.format(n.weight) + "\n";
         }
         s += "(Intersection, Distance)";
         displayText.setText(s);
@@ -252,8 +252,10 @@ public class DAView extends JPanel {
             // iterate through the different directions
             // if valid, enqueue
             for (Location direction : DIRECTIONS)
-                if (!visited[current.x + direction.x][current.y + direction.y] && isValid(new Location(current.x + direction.x, current.y + direction.y)))
+                if (!visited[current.x + direction.x][current.y + direction.y] && isValid(new Location(current.x + direction.x, current.y + direction.y))) {
                     queue.enqueue(new Location(current.x + direction.x, current.y + direction.y));
+                    visited[current.x + direction.x][current.y + direction.y] = true;
+                }
         }
         return -1;
     }
