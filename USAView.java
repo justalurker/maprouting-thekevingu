@@ -290,7 +290,7 @@ public class USAView extends JPanel {
         int counter = 0;
 
         // until queue is empty
-        while (!queue.isEmpty() && counter++ < 100000) {
+        while (!queue.isEmpty() && counter++ < 50000) {
             Location current = queue.dequeue();
             if (pixels[current.x][current.y] != -1)
                 return pixels[current.x][current.y];
@@ -301,8 +301,10 @@ public class USAView extends JPanel {
             // iterate through the different directions
             // if valid, enqueue
             for (Location direction : DIRECTIONS)
-                if (!visited[current.x + direction.x][current.y + direction.y] && isValid(new Location(current.x + direction.x, current.y + direction.y)))
+                if (!visited[current.x + direction.x][current.y + direction.y] && isValid(new Location(current.x + direction.x, current.y + direction.y))) {
                     queue.enqueue(new Location(current.x + direction.x, current.y + direction.y));
+                    visited[current.x + direction.x][current.y + direction.y] = true;
+                }
         }
         return -1;
     }
